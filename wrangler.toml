@@ -1,0 +1,26 @@
+name            = "gmail-otp-worker"
+main            = "src/index.js"
+compatibility_date = "2024-01-01"
+type = "javascript"
+
+# KV Namespace for storing OTPs and rate-limit sentinels
+[[kv_namespaces]]
+binding  = "OTP_STORE"
+id       = "YOUR_KV_NAMESPACE_ID_HERE"
+
+# Environment-specific configuration
+[env.production]
+name = "gmail-otp-worker-prod"
+routes = [
+  { pattern = "otp.yourdomain.com/*", zone_id = "YOUR_ZONE_ID" }
+]
+
+[env.staging]
+name = "gmail-otp-worker-staging"
+routes = [
+  { pattern = "otp-staging.yourdomain.com/*", zone_id = "YOUR_ZONE_ID" }
+]
+
+# Triggers for scheduled deployments (optional)
+# [triggers.crons]
+# cron = ["0 0 * * 0"]  # Every Sunday at 00:00 UTC

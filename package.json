@@ -1,0 +1,29 @@
+{
+  "name": "gmail-otp-worker",
+  "version": "2.0.0",
+  "description": "Cloudflare Worker for sending and verifying OTPs via Gmail API",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:prod": "wrangler deploy --env production",
+    "deploy:staging": "wrangler deploy --env staging",
+    "kv:create": "wrangler kv namespace create OTP_STORE",
+    "kv:create:preview": "wrangler kv namespace create OTP_STORE --preview",
+    "secret:put": "node scripts/setup-secrets.js",
+    "logs": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.52.0"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "otp",
+    "gmail",
+    "oauth2",
+    "email"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
