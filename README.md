@@ -133,4 +133,4 @@ Do not rely on a `verified: true` that browser code decides on its own. Gate som
 
 ## License
 
-MIT. See `LICENSE` if you add one.
+MIT.
